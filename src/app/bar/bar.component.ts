@@ -1,9 +1,8 @@
 
 import { Component, Inject, NgZone, PLATFORM_ID,Injectable} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 
-
+import {BarService} from './bar.service';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
@@ -26,9 +25,9 @@ export class BarComponent {
   inputState='';
   status = 'positive';
   buttonType='add';
-  constructor(private zone: NgZone, private http:HttpClient) {
+  constructor(private zone: NgZone, private http:BarService) {
     let inputData=[];
-    this.http.get<object[]>(this.data_url).toPromise().then(data=>{
+    this.http.getData().toPromise().then(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -55,7 +54,7 @@ add():void{
     this.inputState=this.inputState.toUpperCase();
 
     let array=this.chart.data;
-    this.http.get<object[]>(this.data_url).toPromise().then(data=>{
+    this.http.getData().toPromise().then(data=>{
       if(!this.states.includes(this.inputState)){
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -82,7 +81,7 @@ delete():void{
   this.deleteState();
   console.log(this.states);
   let inputData=[];
-    this.http.get<object[]>(this.data_url).toPromise().then(data=>{
+    this.http.getData().toPromise().then(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -116,7 +115,7 @@ if(buttonType==="delete"){
 }
 statusChange(): void{
     let inputData=[];
-    this.http.get<object[]>(this.data_url).toPromise().then(data=>{
+    this.http.getData().toPromise().then(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
