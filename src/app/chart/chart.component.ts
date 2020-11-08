@@ -9,8 +9,8 @@ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css'],
-  providers:[ChartService]
+  styleUrls: ['./chart.component.css']
+
 })
 
 
@@ -21,9 +21,9 @@ export class ChartComponent {
   private items=[];
   status:string;
   private total_url='https://api.covidtracking.com/v1/us/daily.json';
-  constructor(private zone: NgZone,private http:ChartService) {
+  constructor(private zone: NgZone,private service:ChartService) {
       console.log(this.total_url);
-      this.http.getData().subscribe(data=>{
+      this.service.getData().subscribe(data=>{
 
         data.forEach(element=>{
           let da=element["date"].toString();
@@ -43,7 +43,7 @@ export class ChartComponent {
 
   onChange(): void{
     console.log(this.status);
-    this.http.getData().subscribe(data=>{
+    this.service.getData().subscribe(data=>{
       this.items=[];
 
       data.forEach(element=>{

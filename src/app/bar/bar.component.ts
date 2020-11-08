@@ -12,8 +12,8 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 @Component({
   selector: 'app-bar',
   templateUrl: './bar.component.html',
-  styleUrls: ['./bar.component.css'],
-  providers:[BarService]
+  styleUrls: ['./bar.component.css']
+
 })
 
 export class BarComponent {
@@ -24,9 +24,9 @@ export class BarComponent {
   inputState='';
   status = 'positive';
   buttonType='add';
-  constructor(private zone: NgZone, private http:BarService) {
+  constructor(private zone: NgZone, private service:BarService) {
     let inputData=[];
-    this.http.getData().subscribe(data=>{
+    this.service.getData().subscribe(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -53,7 +53,7 @@ add():void{
     this.inputState=this.inputState.toUpperCase();
 
     let array=this.chart.data;
-    this.http.getData().subscribe(data=>{
+    this.service.getData().subscribe(data=>{
       if(!this.states.includes(this.inputState)){
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -80,7 +80,7 @@ delete():void{
   this.deleteState();
   console.log(this.states);
   let inputData=[];
-    this.http.getData().subscribe(data=>{
+    this.service.getData().subscribe(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -114,7 +114,7 @@ if(buttonType==="delete"){
 }
 statusChange(): void{
     let inputData=[];
-    this.http.getData().subscribe(data=>{
+    this.service.getData().subscribe(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
