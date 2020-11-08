@@ -9,7 +9,8 @@ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  styleUrls: ['./chart.component.css'],
+  providers:[ChartService]
 })
 
 

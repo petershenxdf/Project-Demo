@@ -12,7 +12,8 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 @Component({
   selector: 'app-bar',
   templateUrl: './bar.component.html',
-  styleUrls: ['./bar.component.css']
+  styleUrls: ['./bar.component.css'],
+  providers:[BarService]
 })
 
 export class BarComponent {
