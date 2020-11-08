@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../quiz.service';
 
 export class Address {
   public line1: string;
@@ -33,7 +34,7 @@ export class QuizComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(public quiz : QuizService) { }
 
   ngOnInit(): void {
     this.model.address = new Address();
@@ -224,6 +225,7 @@ export class QuizComponent implements OnInit {
     else {
         this.is_c_10 = false;
       }
+      this.quiz.setScore(this.model.scores);
     }
 
 }
