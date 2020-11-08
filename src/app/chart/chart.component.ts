@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { ChartService } from './chart.service';
 import { Component, NgZone} from '@angular/core';
 
-import {Injectable} from '@angular/core';
 // amCharts imports
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
@@ -14,18 +13,16 @@ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 })
 
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class ChartComponent {
   private chart: am4charts.XYChart;
 
   private items=[];
   status:string;
   private total_url='https://api.covidtracking.com/v1/us/daily.json';
-  constructor(private zone: NgZone,private http:HttpClient) {
+  constructor(private zone: NgZone,private http:ChartService) {
       console.log(this.total_url);
-      this.http.get<object[]>(this.total_url).toPromise().then(data=>{
+      this.http.getData().subscribe(data=>{
 
         data.forEach(element=>{
           let da=element["date"].toString();
@@ -45,7 +42,7 @@ export class ChartComponent {
 
   onChange(): void{
     console.log(this.status);
-    this.http.get<object[]>(this.total_url).toPromise().then(data=>{
+    this.http.getData().subscribe(data=>{
       this.items=[];
 
       data.forEach(element=>{

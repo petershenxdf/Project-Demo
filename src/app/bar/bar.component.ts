@@ -14,9 +14,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
   templateUrl: './bar.component.html',
   styleUrls: ['./bar.component.css']
 })
-@Injectable({
-  providedIn: 'root'
-})
+
 export class BarComponent {
   private chart: am4charts.XYChart3D;
   private states_url='https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json';
@@ -27,7 +25,7 @@ export class BarComponent {
   buttonType='add';
   constructor(private zone: NgZone, private http:BarService) {
     let inputData=[];
-    this.http.getData().toPromise().then(data=>{
+    this.http.getData().subscribe(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -54,7 +52,7 @@ add():void{
     this.inputState=this.inputState.toUpperCase();
 
     let array=this.chart.data;
-    this.http.getData().toPromise().then(data=>{
+    this.http.getData().subscribe(data=>{
       if(!this.states.includes(this.inputState)){
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -81,7 +79,7 @@ delete():void{
   this.deleteState();
   console.log(this.states);
   let inputData=[];
-    this.http.getData().toPromise().then(data=>{
+    this.http.getData().subscribe(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()
@@ -115,7 +113,7 @@ if(buttonType==="delete"){
 }
 statusChange(): void{
     let inputData=[];
-    this.http.getData().toPromise().then(data=>{
+    this.http.getData().subscribe(data=>{
 
       data.forEach(element=>{
         let state=element['state'].toUpperCase()

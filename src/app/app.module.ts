@@ -1,3 +1,5 @@
+import { ChartService } from './chart/chart.service';
+import { BarService } from './bar/bar.service';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
@@ -47,7 +49,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [{provide:BarService},{provide:ChartService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
