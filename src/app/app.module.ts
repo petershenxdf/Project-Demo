@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { MustMatchDirective } from './directives/match-value.directive';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 const routes: Routes = [
   {path: 'lineC', component: ChartComponent},
   {path: 'barC', component: BarComponent},
@@ -37,7 +37,6 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
