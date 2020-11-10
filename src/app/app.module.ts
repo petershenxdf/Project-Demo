@@ -45,10 +45,10 @@ const routes: Routes = [
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    HttpClientModule,
+    // HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [BarService,ChartService],
+  providers: [BarService, ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
