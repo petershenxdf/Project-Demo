@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RecordComponent } from './record/record.component';
-import { AppRoutingModule } from './app-routing.module';
+//import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
 import { BarComponent } from './bar/bar.component';
@@ -42,7 +42,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
