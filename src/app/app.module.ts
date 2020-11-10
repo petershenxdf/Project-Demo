@@ -44,7 +44,6 @@ const routes: Routes = [
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
