@@ -1,5 +1,5 @@
 
-import { Component, Inject, NgZone, PLATFORM_ID,Injectable} from '@angular/core';
+import { Component, Inject, NgZone, PLATFORM_ID, Injectable, OnInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 import {BarService} from './bar.service';
@@ -16,7 +16,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 })
 
-export class BarComponent {
+export class BarComponent implements OnInit {
   private chart: am4charts.XYChart3D;
   private states_url='https://gist.githubusercontent.com/mshafrir/2646763/raw/8b0dbb93521f5d6889502305335104218454c2bf/states_hash.json';
   private data_url='https://api.covidtracking.com/v1/states/current.json';
@@ -25,6 +25,9 @@ export class BarComponent {
   status = 'positive';
   buttonType='add';
   constructor(private zone: NgZone, private service:BarService) {
+
+}
+  ngOnInit(): void {
     let inputData=[];
     this.service.getData().subscribe(data=>{
 
@@ -48,7 +51,7 @@ export class BarComponent {
 
 
   })
-}
+  }
 add():void{
     this.inputState=this.inputState.toUpperCase();
 

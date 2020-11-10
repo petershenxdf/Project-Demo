@@ -1,5 +1,5 @@
 import { ChartService } from './chart.service';
-import { Component, NgZone} from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 
 // amCharts imports
 import * as am4core from '@amcharts/amcharts4/core';
@@ -15,14 +15,17 @@ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
 
 
-export class ChartComponent {
+export class ChartComponent implements OnInit {
   private chart: am4charts.XYChart;
 
   private items=[];
   status:string;
   private total_url='https://api.covidtracking.com/v1/us/daily.json';
   constructor(private zone: NgZone,private service:ChartService) {
-      console.log(this.total_url);
+
+  }
+  ngOnInit(): void {
+    console.log(this.total_url);
       this.service.getData().subscribe(data=>{
 
         data.forEach(element=>{

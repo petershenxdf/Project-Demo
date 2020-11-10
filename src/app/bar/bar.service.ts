@@ -9,8 +9,8 @@ export class BarService {
 
   constructor(private http:HttpClient) { }
 
-  getData(): Observable<object[]>{
+  getData(): Observable<Object[]>{
     let url='https://api.covidtracking.com/v1/states/current.json';
-    return this.http.get<object[]>(url);
+    return this.http.get<Object[]>(url);
   }
 }

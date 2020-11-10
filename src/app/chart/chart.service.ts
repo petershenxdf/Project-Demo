@@ -10,6 +10,6 @@ export class ChartService {
   constructor(private http:HttpClient) { }
   getData(): Observable<Object[]>{
     let url='https://api.covidtracking.com/v1/us/daily.json';
-    return this.http.get<object[]>(url);
+    return this.http.get<Object[]>(url);
   }
 }
