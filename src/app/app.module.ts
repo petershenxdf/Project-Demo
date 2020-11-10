@@ -48,7 +48,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [BarService,ChartService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
