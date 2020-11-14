@@ -1,77 +1,33 @@
-<div style="text-align:center;" [style.display]="'block'">
-    <p class="h3" style="font-family: Times, serif;">Tables of Each State</p>
-    <br>
+<div style="text-align:center;">
 
-    <form>
-        <div class="form-group row mx-auto" style="width: 70%;">
-            <div class="col"> Data Type
-                <select class="form-control" [(ngModel)]="dataType" name="dataType">
-                    <option value="Death"> Death </option>
-                    <option value="Positive"> Positive Case </option>
-                    <option value="Recovery"> Recovery </option>
-                </select>
-            </div>
-            <div class="col"> Sort Method
-                <select class="form-control" [(ngModel)]="sortMethod" name="sortMethod">
-                    <option value="Highest"> Highest </option>
-                    <option value="Lowest"> Lowest </option>
-                </select>
-            </div>
-            <div class="col">Number of selections
-                <input class="form-control" id="numberOfSelect" type="number" [(ngModel)]="numberOfSelect" min="1"  max="5"
-                    name="numberOfSelect" >
-            </div>
-        </div>
-    </form>
-    <br>
-    <button type="button" class="btn btn-info btn-circle btn-xl" (click) = "SearchClick()"> Search </button>
+  <p class="h3" style="font-family: Times, serif;">Tables of Each State</p>
 
+  <hr>
 
-    <br>
-    <hr>
-    <div></div>
-    <hr>
+  <!-- Table & Data Seclet -->
 
-    <br>
-    <br>
+  <table border="0" style=" margin-left: auto; margin-right: auto; width:80%">
+      <thead>
+          <tr>
+              <th>States</th>
+              <th>Total positieve cases</th>
+              <th>Total death cases</th>
+              <th>Total recoved cases</th>
+          </tr>
+      </thead>
 
-    <!-- Table & Data Seclet -->
+      <tbody>
+          <tr *ngFor="let x of mylist">
+              <td >{{x.state}} </td>
+              <td >{{x.positive}}</td>
+              <td> {{x.death}}</td>
+              <td> {{ x?.recovered || 0 }}</td>
+          </tr>
 
-    <table border="0" style=" margin-left: auto; margin-right: auto; width:80%">
-        <thead>
-            <tr>
-                <th>States</th>
-                <th>Total positieve cases</th>
-                <th>Total death cases</th>
-                <th>Total recoved cases</th>
-            </tr>
-        </thead>
+      </tbody>
+  </table>
 
-        <tbody>
-            <tr>
-                <td>Illinois </td>
-                <td>10086</td>
-                <td>1900</td>
-                <td>1500</td>
-            </tr>
+  <br>
+  <br>
 
-            <tr>
-                <td>California </td>
-                <td>12000</td>
-                <td>1000</td>
-                <td>3600</td>
-            </tr>
-            <tr>
-                <td>Texas </td>
-                <td>11000</td>
-                <td>1000</td>
-                <td>1800</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <br>
-    <br>
-    <input id="dateOfData" type="date" [(ngModel)]="dateOfData" name="dateOfData">
-    <button type="button" class="btn btn-info btn-circle btn-xl" > Update </button>
 </div>
