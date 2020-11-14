@@ -1,8 +1,9 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RecordComponent } from './record/record.component';
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
 import { BarComponent } from './bar/bar.component';
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { MustMatchDirective } from './directives/match-value.directive';
+import { TableService } from './table/table.service';
 
 const routes: Routes = [
   {path: 'lineC', component: ChartComponent},
@@ -35,8 +37,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
