@@ -18,6 +18,7 @@ import {environment} from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AuthGuard} from './auth.guard';
 import {HttpClientModule} from '@angular/common/http';
+import { TableService } from './table/table.service';
 
 const routes: Routes = [
   {path: 'lineC', component: ChartComponent},
@@ -25,8 +26,8 @@ const routes: Routes = [
   {path: 'table', component: TableComponent},
   {path: 'login', component: LoginComponent},
   {path: 'quiz', component: QuizComponent},
-  {path: 'record', component: RecordComponent}
-  //{path: '', redirectTo: '/login', pathMatch: 'full'}
+  {path: 'record', component: RecordComponent},
+  {path: '', redirectTo: '/table', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -45,10 +46,12 @@ const routes: Routes = [
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    // HttpClientModule,
+    // AppRoutingModule,
+
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [BarService, ChartService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

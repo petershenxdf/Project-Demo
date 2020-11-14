@@ -8,8 +8,8 @@ import { Observable, of } from 'rxjs';
 export class ChartService {
 
   constructor(private http:HttpClient) { }
-  getData(): Observable<Object[]>{
+  getData(): Observable<object[]>{
     let url='https://api.covidtracking.com/v1/us/daily.json';
-    return this.http.get<Object[]>(url);
+    return this.http.get<object[]>(url);
   }
 }
