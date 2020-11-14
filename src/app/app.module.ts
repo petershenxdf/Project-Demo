@@ -26,8 +26,8 @@ const routes: Routes = [
   {path: 'table', component: TableComponent},
   {path: 'login', component: LoginComponent},
   {path: 'quiz', component: QuizComponent},
-  {path: 'record', component: RecordComponent}
-  //{path: '', redirectTo: '/login', pathMatch: 'full'}
+  {path: 'record', component: RecordComponent},
+  {path: '', redirectTo: '/table', pathMatch: 'full'}
 ];
 
 @NgModule({

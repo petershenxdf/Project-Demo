@@ -30,7 +30,7 @@
                       <a class="nav-link" [routerLink]="['/record']">Sharing</a>
                   </li>
                   <li style="padding-left: 30%;" class="nav-item">
-                      <a class="nav-link" [routerLink]="['/login']">{{this.auth.isLoggedIn() ? this.auth.getUserName() : 'Login'}}</a>
+                      <a class="nav-link" [routerLink]="['/login']">Login</a>
                   </li>
               </ul>
           </div>
@@ -45,9 +45,9 @@
       <footer class="page-footer font-small blue fixed-bottom">
 
         <div Style="background-color:lightblue;" class="footer-copyright text-center py-3">
+          {{this.auth.isLoggedIn() ? this.auth.getUserName() : ''}} Your Test Score is: {{quiz.getScore()}}
+          <hr>
           © 2020 Copyright: DePaul 2020 Autumn CSC-436 Group 5
-          <br>
-          Your Test Score is:{{quiz.getScore()}}
         </div>
       </footer>
       <hr>
