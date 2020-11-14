@@ -32,3 +32,32 @@ button.submit {
 label{
     color: gray;
 }
+
+.output1{
+  text-align:inherit;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.output2{
+  text-align:inherit;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.output3{
+
+  text-align:inherit;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.output4{
+  text-align: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
