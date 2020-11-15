@@ -1,7 +1,7 @@
 <!--Division heading-->
 <div class="container-fluid" style="text-align:center">
   <div>
-      <div>
+      <div class= "head" style="color: #00ccff" >
           PATIENT RECORDS
       </div>
   </div>
@@ -10,9 +10,9 @@
   <br>
   <div>
       <div class="divClass1">
-          <form #myForm="ngForm" (ngSubmit)="myForm.form.valid && onSubmit(myForm)"  >
+          <form #myForm="ngForm" (ngSubmit)="myForm.form.valid && onSubmit(myForm)" >
 
-            <div class="form-group4">
+            <div class="form-group1">
               <label>Please enter the Name:</label><br>
               <input type="text" name="name" [(ngModel)]="model.name" #name="ngModel"
                   class="center-block4" [ngClass]="{ 'is-invalid': myForm.submitted && name.invalid }" required> <br>
@@ -21,7 +21,7 @@
               </div>
             </div>
 
-            <div class="form-group1">
+            <div class="form-group2">
               <label>Please enter the location:</label><br>
               <input type="text" name="location" [(ngModel)]="model.location" #location="ngModel"
                   class="center-block1" [ngClass]="{ 'is-invalid': myForm.submitted && location.invalid }" required> <br>
@@ -47,17 +47,18 @@
 
   <!--Tasks added repeated divisions-->
   <div *ngFor="let x of items; let index = index;">
-      <div>
-          <br>
-          <div>Name: {{x.name}} <br> Location: {{x.location}}<br> Time: {{x.time}}<br></div>
-          <div>Message:</div>
-          <div *ngFor="let y of x.message;">
-              <div>{{y}} <br> </div></div>
-
-          <input (click)="deleteTask(index)" type="button"
-              value="Delete">
-          <hr>
-      </div>
-      <div class="col-3 d-none col-md-3 d-md-block"></div>
+    <div class= "output">
+      <br>
+      <div class="output1"> Name: {{x.name}}</div> <br> <br>
+      <div class="output2">Location: {{x.location}}</div><br> <br>
+      <div class="output3">Time: {{x.time}} </div> <br>
+      <div class="output4">Message:</div>
+      <div *ngFor="let y of x.message;">
+        <div class="output5">{{y}} <br> </div></div>
+      <input (click)="deleteTask(index)" type="button"
+             value="Delete">
+      <hr>
+    </div>
+    <div class="col-3 d-none col-md-3 d-md-block"></div>
   </div>
 </div>

@@ -1,29 +1,63 @@
+.divClass1{
+  text-align:center;
 
-div.divClass1{
-  text-align: center;
-  color: #9500ff;
 }
+form {
+  text-align:center;
+  background-color: bisque;
+  border-style: ridge;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+div {
+  text-align:center;
+  margin: auto;
+}
+
 button.submit{
-  width: 100px;
-  background-color: deepskyblue;
-
+  width: 20%;
+  background-color: cornflowerblue;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align:center;
+  font-size: large;
+  font-weight: 700;
 }
-.center-block1{
-  width:700px;
-  text-align: center;
+label{
+  color: gray;
 }
-.center-block2{
-  width:700px;
-  text-align: center;
+.head{
+   font-size: 50px;
+  font-family: inherit;
 }
-.center-block4{
-  width:700px;
-  text-align: center;
+.output{
+  text-align:center;
+  background-color: bisque;
+  border-style: ridge;
+  margin-bottom: 20px;
+  padding-top: 20px;
 }
-.center-block3{
-  width:700px;
-  height:80px;
+.output1{
+  text-align:left;
+  padding-left: 100px;
 }
-.cabin {
-  background-color: green;
+.output2{
+  text-align:left;
+  padding-left: 100px;
+}
+.output3{
+  text-align:left;
+  padding-left: 100px;
+}
+.output4{
+  text-align:left;
+  padding-left: 100px;
+}
+.output5{
+  text-align: left;
+  padding-left: 100px;
 }
